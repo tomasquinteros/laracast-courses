@@ -6,6 +6,9 @@
       <sourceFolder url="file://$MODULE_DIR$/30_days_of_Laravel/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/30_days_of_Laravel/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/30_days_of_Laravel/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/30_days_of_Laravel/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/30_days_of_Laravel/vendor/brianium/paratest" />
       <excludeFolder url="file://$MODULE_DIR$/30_days_of_Laravel/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/30_days_of_Laravel/vendor/carbonphp/carbon-doctrine-types" />

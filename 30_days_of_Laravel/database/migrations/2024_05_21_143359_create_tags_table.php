@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Employer::class, 'employer_id');
-            $table->string('title');
-            $table->string('salary');
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('job_tag', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(\App\Models\Job::class, 'job_id');
+            $table->foreignIdFor(\App\Models\Tag::class, 'tag_id');
             $table->timestamps();
         });
     }
@@ -25,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('tags');
     }
 };

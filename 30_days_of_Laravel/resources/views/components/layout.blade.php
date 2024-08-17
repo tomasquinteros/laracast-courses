@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="bg-[#1D2331] text-white">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -8,14 +8,23 @@
     <title>{{$heading}}</title>
 </head>
 <body class="text-xl">
-<header class="flex flex-row justify-center items-center p-2 border-b-[1px] border-gray-600 shadow-[0_0_5px_rgba(0,0,0,0.5)]">
-    <nav class="flex flex-row gap-4">
-        <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-        <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
-        <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-    </nav>
+<header class=" bg-[#1C242F] text-white py-3 px-8 border-b-[1px] border-gray-600">
+    <div class="max-w-[1200px] flex flex-row gap-8 items-center m-auto">
+        <img src="https://laracasts.com/images/logo/logo-triangle.svg" class="h-8 w-8">
+        <nav class="flex flex-row gap-4">
+            <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+            <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
+            <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+        </nav>
+    </div>
 </header>
-<main class="text-[2rem] p-4">
+<section class="shadow">
+    <div class="max-w-[1200px] mx-auto px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
+        <x-button href="/jobs/create">Create job</x-button>
+    </div>
+</section>
+<main class="text-[2rem] py-8 max-w-[1200px] m-auto">
     {{$slot}}
 </main>
 </body>

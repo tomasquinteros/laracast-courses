@@ -1,7 +1,8 @@
 <x-layout>
     <x-slot:heading>Edit {{$job->title}}</x-slot:heading>
-    <form action="/jobs" method="POST">
+    <form action="/jobs/{{$job->id}}" method="POST">
         @csrf
+        @method('PATCH')
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Create e new job</h2>
@@ -14,10 +15,12 @@
                         <div class="mt-2">
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="text" name="title" id="title" class="block flex-1 border-0
+                                <input
+                                  value="{{old('title', $job->title)}}"
+                                  type="text" name="title" id="title" class="block flex-1 border-0
                                 bg-transparent px-3 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm
                                 sm:leading-6"
-                                       placeholder="Programmer">
+                                  placeholder="Programmer">
                             </div>
                             @error('title')
                             <span class="text-sm text-red-500 bold">{{$message}}</span>
@@ -30,10 +33,12 @@
                         <div class="mt-2">
                             <div
                               class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="text" name="salary" id="salary" class="block flex-1 border-0
+                                <input
+                                  value="{{old('salary', $job->salary)}}"
+                                  type="text" name="salary" id="salary" class="block flex-1 border-0
                                 bg-transparent px-3 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm
                                 sm:leading-6"
-                                       placeholder="$90.000 per Year">
+                                  placeholder="$90.000 per Year">
                             </div>
                             @error('salary')
                             <span class="text-sm text-red-500 bold">{{$message}}</span>
@@ -50,12 +55,23 @@
                                 @endif--}}
             </div>
         </div>
-        <div class="mt-6 flex items-center justify-end gap-x-6">
-            <button type="submit"
-                    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                Save
-            </button>
+        <div class="flex flex-row justify-between items-center">
+            <button type="submit" form="job-delete" class="text-red-600 text-sm font-semibold">Delete</button>
+
+            <div class="mt-6 flex items-center justify-end gap-x-6">
+                <a href="/jobs/{{$job->id}}"
+                   class="rounded-md text-indigo-600 px-3 py-2 text-sm font-semibold                    focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Cancel
+                </a>
+                <button type="submit"
+                        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Update
+                </button>
+            </div>
         </div>
     </form>
-
+    <form id="job-delete" action="/jobs/{{$job->id}}" method="post">
+        @csrf
+        @method('DELETE')
+    </form>
 </x-layout>

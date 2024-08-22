@@ -1,61 +1,26 @@
 <?php
 
     use App\Http\Controllers\JobController;
-    use App\Models\Job;
+    use App\Http\Controllers\RegisteredUserController;
+    use App\Http\Controllers\SessionController;
     use Illuminate\Support\Facades\Route;
 
     Route::view('/', 'home');
-    Route::resource('/jobs', JobController::class);
-    /*   // Index
-       Route::get('/jobs', function () {
-           return view('jobs.index', ['jobs' => Job::with('employer', 'tags')->latest()->simplePaginate(3)]);
-       });
-       // Create job
-       Route::get('/jobs/create', function () {
-           return view('jobs.create');
-       });
-       // Show
-       Route::get('/jobs/{id}', function ($id) {
-           return view('jobs.job', ['job' => Job::find($id)]);
-       });
-
-       // Store
-       Route::post('/jobs', function () {
-           request()->validate([
-             'title' => ['required'],
-             'salary' => ['required'],
-           ]);
-
-           Job::create([
-             'title' => request('title'),
-             'salary' => request('salary'),
-             'employer_id' => 1,
-           ]);
-
-           return redirect('/jobs');
-       });
-
-       // View edit
-       Route::get('/jobs/{id}/edit', function ($id) {
-           return view('jobs.edit', ['job' => Job::find($id)]);
-       });
-
-       // Update
-       Route::patch('/jobs/{id}', function ($id) {
-           request()->validate([
-             'title' => ['required'],
-             'salary' => ['required'],
-           ]);
-           Job::findOrFail($id)->update(['title' => request('title'), 'salary' => request('salary')]);
-
-           return redirect('/jobs/'.$id);
-       });
-
-       // Destroy
-       Route::delete('/jobs/{id}', function ($id) {
-           Job::findOrFail($id)->delete();
-
-           return redirect('/jobs');
-       });*/
-
     Route::view('/contact', 'contact');
+    Route::get('/jobs', [JobController::class, 'index']);
+    Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
+    Route::get('/jobs/{job}', [JobController::class, 'show'])->middleware('auth');
+    Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
+      ->middleware('auth')
+      ->can('edit-job', 'job');
+    Route::patch('/jobs/{job}', [JobController::class, 'update']);
+    Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
+    Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
+    // Auth
+
+    Route::get('/register', [RegisteredUserController::class, 'create']);
+    Route::post('register', [RegisteredUserController::class, 'store']);
+
+    Route::get('/login', [SessionController::class, 'create'])->name('login');
+    Route::post('/login', [SessionController::class, 'store']);
+    Route::post('/logout', [SessionController::class, 'destroy']);

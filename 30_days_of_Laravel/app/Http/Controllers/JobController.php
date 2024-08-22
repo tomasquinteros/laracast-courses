@@ -3,9 +3,12 @@
     namespace App\Http\Controllers;
 
     use App\Http\Controllers\Controller;
+    use App\Models\Employer;
+    use App\Models\User;
     use Illuminate\Http\RedirectResponse;
     use Illuminate\Http\Request;
     use App\Models\Job;
+    use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Redirect;
     use Illuminate\View\View;
 
@@ -29,11 +32,15 @@
 
         public function store(Request $request): RedirectResponse
         {
+            $user = Auth::user()->employer()->id;
+            dd($user);
             $request->validate([
               'title' => ['required', 'min:3'],
               'salary' => ['required'],
             ]);
-            $job = Job::create(['title' => $request['title'], 'salary' => $request['salary']]);
+            $job = Job::create([
+              'title' => $request['title'], 'salary' => $request['salary'],
+            ]);
 
             return redirect()->route('jobs.show', ['job' => $job]);
         }

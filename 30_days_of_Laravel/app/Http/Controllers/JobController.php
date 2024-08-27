@@ -68,7 +68,7 @@
         {
             $job->delete();
 
-            return redirect()->route('jobs.index');
+            return redirect()->to('/jobs');
         }
 
     }

@@ -13,7 +13,12 @@
         /**
          * Determine whether the user can view any models.
          */
-        public function edit(Job $job, User $user): Boolean
+        public function edit(User $user, Job $job): bool
+        {
+            return $job->employer->user->is($user);
+        }
+
+        public function destroy(User $user, Job $job): bool
         {
             return $job->employer->user->is($user);
         }

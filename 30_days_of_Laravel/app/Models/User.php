@@ -50,4 +50,9 @@
             ];
         }
 
+        public function employer(): HasMany
+        {
+            return $this->hasMany(Employer::class);
+        }
+
     }

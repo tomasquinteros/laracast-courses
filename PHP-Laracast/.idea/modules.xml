@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PHP-Beginners.iml" filepath="$PROJECT_DIR$/.idea/PHP-Beginners.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PHP-Laracast.iml" filepath="$PROJECT_DIR$/.idea/PHP-Laracast.iml" />
     </modules>
   </component>
 </project>

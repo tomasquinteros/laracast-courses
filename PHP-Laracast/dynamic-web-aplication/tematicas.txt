@@ -1,0 +1,20 @@
+TEMÁTICAS VISTAS:
+
+Tema II = Dynamic web
+  * Reutilizar código
+  * Crear una clase para alojar la base de datos
+  * Crear métodos para la Base de datos
+  * Aprender de las vulnerabilidades más comunes a la hora de inyectar la base de datos.
+
+Tema II = Notes Mini project
+  * Crear base de datos con keys foráneas
+  * Utilizar los métodos de request desde el servido (Get and Post)
+  * Pasar datos mediante la URI
+  * Introducción al auth
+  * Crear formularios y validarlos.
+
+Tema IV = Project Organization
+  * Namespacing
+  * Router mejorado
+  * App service and Container
+  * Actualizar datos de la base de datos.

@@ -1,5 +1,6 @@
 <?php
 
+    session_start();
     const BASE_PATH = __DIR__.'/../';
 
     require BASE_PATH.'Core/functions.php';
@@ -16,4 +17,5 @@
     $uri = parse_url($_SERVER['REQUEST_URI'])['path']; // Recuperamos la ruta
     $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD']; // Recuperamos el method ya sea GET|POST|DELETE|PATCH|PUT
 
+    // Llamamos al metodo route donde le pasamos como parametros la uri que intentamos ingresar y el metodo
     $router->route($uri, $method);

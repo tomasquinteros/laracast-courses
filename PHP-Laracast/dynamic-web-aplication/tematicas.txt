@@ -18,3 +18,9 @@ Tema IV = Project Organization
   * Router mejorado
   * App service and Container
   * Actualizar datos de la base de datos.
+
+Tema V = Authentication and Sessions
+  * Crear usarios
+  * Loguear usuarios
+  * Setear cookies
+  * Crear middlewares

@@ -55,10 +55,15 @@
                 if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
                     Middleware::resolve($route['middleware']);
 
-                    return require(base_path("controllers/".$route['controller']));
+                    return require(base_path("Http/controllers/".$route['controller']));
                 };
             }
             $this->abort(404);
+        }
+
+        public function previousUrl()
+        {
+            return $_SERVER['HTTP_REFERER'];
         }
 
         #[NoReturn]

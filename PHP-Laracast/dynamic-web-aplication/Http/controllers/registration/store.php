@@ -2,21 +2,14 @@
 
     use Core\App;
     use Core\Database;
-    use Core\Validator;
+    use Http\Form\LoginForm;
 
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $errors = [];
-    if ( ! Validator::email($email)) {
-        $errors['email'] = 'Email is required, please enter your email';
-    }
-    if ( ! Validator::string($password, 7, 255)) {
-        $errors['password'] = 'The password must be more than 7 characters';
-    }
-
-    if ( ! empty($errors)) {
-        view('registration/create.view.php', ['errors' => $errors]);
+    $form = new LoginForm();
+    if ( ! $form->validate($email, $password)) {
+        view('registration/create.view.php', ['errors' => $form->getErrors()]);
     }
 
     $db = App::resolve(Database::class);

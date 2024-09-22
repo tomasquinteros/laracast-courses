@@ -1,5 +1,6 @@
 <?php
 
+    use Core\Session;
     use JetBrains\PhpStorm\NoReturn;
     use Core\Response;
 
@@ -49,23 +50,13 @@
     }
 
     #[NoReturn]
-    function login($user): void
+    function redirect($path): void
     {
-        $_SESSION['user'] = ['email' => $user['email']];
-        header('location: /');
-        session_regenerate_id(true);
-
+        header("location: {$path}");
         exit();
     }
 
-    #[NoReturn]
-    function logout(): void
+    function old($key, $default = '')
     {
-        $_SESSION = [];
-        session_destroy();
-        $params = session_get_cookie_params();
-        setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
-
-        header('location: /');
-        exit();
+        return Session::get('old')[$key] ?? $default;
     }

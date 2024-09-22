@@ -1,5 +1,8 @@
 <?php
 
+    use Core\Session;
+    use Core\ValidationException;
+
     session_start();
     const BASE_PATH = __DIR__.'/../';
 
@@ -18,4 +21,12 @@
     $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD']; // Recuperamos el method ya sea GET|POST|DELETE|PATCH|PUT
 
     // Llamamos al metodo route donde le pasamos como parametros la uri que intentamos ingresar y el metodo
-    $router->route($uri, $method);
+    try {
+        $router->route($uri, $method);
+    } catch (ValidationException $exception) {
+        Session::flash('errors', $exception->errors);
+        Session::flash('old', $exception->old);
+
+        return redirect($router->previousUrl());
+    }
+    Session::unflash();

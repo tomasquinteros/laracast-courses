@@ -18,6 +18,6 @@
     $router->post('/register', 'registration/store.php');
 
     // Login and Logout
-    $router->get('/login', 'session/create.php')->only('guest');
+    $router->get('/login', 'session/create.php');
     $router->post('/session', 'session/store.php');
     $router->delete('/session', 'session/destroy.php')->only('auth');

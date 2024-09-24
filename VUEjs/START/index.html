@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First step</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <section v-show="assignmentsInProgress.length">
+        <h1>In progress</h1>
+        <ul>
+            <li v-for="assignment in assignmentsInProgress " :key="assignment.id">
+                <label>
+                    {{assignment.name}}
+                    <input type="checkbox" v-model="assignment.complete">
+                </label>
+            </li>
+        </ul>
+    </section>
+    <section v-show="assignmentsCompleted.length">
+        <h1>Completed</h1>
+        <ul>
+            <li v-for="assignment in assignmentsCompleted " :key="assignment.id">
+                <label>
+                    {{assignment.name}}
+                    <input type="checkbox" v-model="assignment.complete">
+                </label>
+            </li>
+        </ul>
+    </section>
+</div>
+
+
+<script>
+    let app = {
+        data() {
+            return {
+                assignments: [
+                    {id: 1, name: 'Working to programming', complete: false},
+                    {id: 2, name: 'Working to english', complete: false},
+                    {id: 3, name: 'Wash my teeth', complete: false}
+                ]
+            };
+        },
+        computed: {
+                assignmentsCompleted() {
+                    return this.assignments.filter(assignment => assignment.complete);
+                },
+                assignmentsInProgress () {
+                return this.assignments.filter(assignment => ! assignment.complete);
+                }
+        }
+    };
+    Vue.createApp(app).mount('#app');
+</script>
+</body>
+</html>
+

@@ -7,58 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>First step</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-
-
-<div id="app">
-    <section v-show="assignmentsInProgress.length">
-        <h1>In progress</h1>
-        <ul>
-            <li v-for="assignment in assignmentsInProgress " :key="assignment.id">
-                <label>
-                    {{assignment.name}}
-                    <input type="checkbox" v-model="assignment.complete">
-                </label>
-            </li>
-        </ul>
-    </section>
-    <section v-show="assignmentsCompleted.length">
-        <h1>Completed</h1>
-        <ul>
-            <li v-for="assignment in assignmentsCompleted " :key="assignment.id">
-                <label>
-                    {{assignment.name}}
-                    <input type="checkbox" v-model="assignment.complete">
-                </label>
-            </li>
-        </ul>
-    </section>
-</div>
-
-
-<script>
-    let app = {
-        data() {
-            return {
-                assignments: [
-                    {id: 1, name: 'Working to programming', complete: false},
-                    {id: 2, name: 'Working to english', complete: false},
-                    {id: 3, name: 'Wash my teeth', complete: false}
-                ]
-            };
-        },
-        computed: {
-                assignmentsCompleted() {
-                    return this.assignments.filter(assignment => assignment.complete);
-                },
-                assignmentsInProgress () {
-                return this.assignments.filter(assignment => ! assignment.complete);
-                }
+    <style>
+        html, body {
+            height: 100%;
         }
-    };
-    Vue.createApp(app).mount('#app');
-</script>
+        body {
+            display: grid;
+            place-items: center;
+        }
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+
+        .is-loading { color: transparent; }
+
+        .is-loading:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            margin-left: -10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            border-top-color: #000;
+            animation: spinner .6s linear infinite;
+        }
+    </style>
+    <div id="app" class="grid items-center">
+        <button-component type="primary" :processing="false">Click here!</button-component>
+    </div>
+
+
+    <script type='module'>
+        import App from "./js/App.js";
+        Vue.createApp(App).mount('#app');
+    </script>
 </body>
 </html>
 

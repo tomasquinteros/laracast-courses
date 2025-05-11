@@ -1,0 +1,17 @@
+{
+    "name": "tomasdev/poo_php",
+    "autoload": {
+        "psr-4": {
+            "Tomasdev\\PooPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tomas Quinteros",
+            "email": "tomassaidquinteros@gmail.com"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "^3.33"
+    }
+}

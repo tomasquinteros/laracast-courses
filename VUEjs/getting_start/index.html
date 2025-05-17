@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" class="bg-black text-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="root">
+        <input v-model="greeting"  class="border-2 border-solid border-white"/>
+        <p>{{ greeting }} {{ greeting.length }}</p>
+    </div>
+    <!-- Class 2 -->
+    <div id="root2">
+        <button :class="!buttonClass ? 'text-red-500 bg-white rounded-sm p-1' : 'text-green-500 bg-white rounded-sm p-1'" v-on:click="toggleButton">
+            Click here!
+        </button>
+    </div>
+    <!-- Class 3 -->
+    <div id="root3">
+        <section v-if="inProgressAssignments.length > 0">
+            <h2 class="text-xl mt-9">In Progress</h2>
+            <ul>
+                <li v-for="assignment in inProgressAssignments" :key="assignment.id">
+                    <label>
+                        {{ assignment.name }}
+                        <input type="checkbox" v-model="assignment.completed"/>
+                    </label>
+                </li>
+            </ul>
+        </section>
+        <section v-if="completedAssignments.length > 0">
+            <h2 class="text-xl mt-8">Completed</h2>
+
+            <ul>
+                <li v-for="assignment in completedAssignments" :key="assignment.id">
+                    <label>
+                        {{ assignment.name }}
+                        <input type="checkbox" v-model="assignment.completed"/>
+                    </label>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <script type="module">
+        Vue.createApp({
+            data () {
+                return {
+                    greeting:'Hello World',
+                }
+            },
+            mounted() {
+                setTimeout(() => {
+                    this.greeting = 'Tomas Quinteros';
+                }, 3000)
+            }
+        }).mount('#root');
+        // Class 2
+        Vue.createApp({
+            data () {
+                return {
+                    buttonClass: false,
+                }
+            },
+            methods: {
+                toggleButton () {
+                    this.buttonClass = ! this.buttonClass;
+                }
+            }
+        }).mount('#root2');
+        // Class 3
+        let app = {
+            data () {
+                return {
+                    assignments : [
+                        {'id' : 1, 'name' : 'Learn vue', 'completed' : false},
+                        {'id' : 2, 'name' : 'Learn PHP', 'completed' : false},
+                        {'id' : 3, 'name' : 'Learn Laravel', 'completed' : false }
+                    ]
+                }
+            },
+            computed: {
+                completedAssignments () {
+                    return this.assignments.filter(assignment => assignment.completed)
+                },
+                inProgressAssignments () {
+                    return this.assignments.filter(assignment => ! assignment.completed)
+                }
+
+            }
+        };
+        Vue.createApp(app).mount('#root3');
+    </script>
+</body>
+</html>

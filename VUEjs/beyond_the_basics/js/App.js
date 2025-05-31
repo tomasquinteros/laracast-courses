@@ -5,6 +5,10 @@ export default {
         Assignments
     },
     template: `
-        <assignments></assignments>
+        <div class="grid place-items-center">        
+            <div class="flex flex-col items-center justify-center max-w-[800px]">
+                <assignments></assignments>
+            </div>
+        </div>
     `
 }

@@ -3,19 +3,17 @@ import AssignmentCreate from "./AssignmentCreate.js";
 export default {
     components: {AssignmentCreate, AssignmentsList},
     template : `
+    <div class="max-w-full">
       <assignments-list v-if="inProgressAssignments.length > 0" :assignments="inProgressAssignments" :title="'In Progress'"></assignments-list>
       <assignments-list v-if="completedAssignments.length > 0" :assignments="completedAssignments" :title="'Completed'"></assignments-list>
       <assignment-create @add="add"></assignment-create>
+    </div>
     `,
-    data () {
-                return {
-                    assignments : [
-                        {'id' : 1, 'name' : 'Learn vue', 'completed' : false, 'tag' : 'Frontend'},
-                        {'id' : 2, 'name' : 'Learn PHP', 'completed' : false, 'tag' : 'Backend'},
-                        {'id' : 3, 'name' : 'Learn Laravel', 'completed' : false, 'tag' : 'Backend' }
-                    ],
-                }
-            },
+    data() {
+        return {
+            assignments: [],
+        }
+    },
     computed: {
         completedAssignments () {
             return this.assignments.filter(assignment => assignment.completed)
@@ -24,7 +22,15 @@ export default {
             return this.assignments.filter(assignment => ! assignment.completed)
         }
     },
-
+    // El created hace referencia al ciclo de vida de la aplicacion. El ciclo de vida de una aplicacion es el siguiente:
+    // - created => Sirve para inicializar los datos, acceder a APIs, metodos, etc.
+    // - mounted => Ya se puede manipular el dom
+    // - unmounted => Se usa para hacer algo antes que el componente se desmonte. (Ya sea esconderse, eliminarse del
+    // DOM)
+    
+    created () {
+        fetch('http://localhost:4000/assignments').then(response => response.json()).then(data => this.assignments = data)
+    },
     methods : {
         add (value) {
             if (value === '') {

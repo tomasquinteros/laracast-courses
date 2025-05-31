@@ -13,16 +13,18 @@ export default {
                 'border-blue-400 text-blue-200' : tag === this.currentTag
             }"
         >-->
-        <button  
-            @click="$emit('update:currentTag', tag)" 
-            v-for="tag in this.tags"
-            class="border rounded-sm border-white mx-1 px-2 py-1"
-            :class="{
-                'border-blue-400 text-blue-200' : tag === this.currentTag
-            }"
-        >
-          {{tag}}
-        </button>
+        <div class="flex flex-row items-center justify-start">        
+            <button
+                @click="$emit('update:currentTag', tag)" 
+                v-for="tag in this.tags"
+                class="border rounded-sm border-white my-2 mx-1 px-2 py-1"
+                :class="{
+                    'border-blue text-blue-200' : tag === this.currentTag
+                }"
+            >
+              {{tag}}
+            </button>
+        </div>
     `,
     props: {
         initialTags : Array,

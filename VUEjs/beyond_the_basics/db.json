@@ -1,0 +1,34 @@
+{
+    "assignments": [
+        {
+            "id": 1,
+            "name": "Learn vue",
+            "completed": false,
+            "tag": "frontend"
+        },
+        {
+            "id": 2,
+            "name": "Learn PHP",
+            "completed": false,
+            "tag": "backend"
+        },
+        {
+            "id": 3,
+            "name": "Learn Laravel",
+            "completed": false,
+            "tag": "backend"
+        },
+        {
+            "id": 4,
+            "name": "Learn Docker",
+            "completed": false,
+            "tag": "devops"
+        },
+        {
+            "id": 5,
+            "name": "Learn Kubernets",
+            "completed": true,
+            "tag": "devops"
+        }
+    ]
+}

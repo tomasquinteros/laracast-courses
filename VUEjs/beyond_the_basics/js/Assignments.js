@@ -3,15 +3,25 @@ import AssignmentCreate from "./AssignmentCreate.js";
 export default {
     components: {AssignmentCreate, AssignmentsList},
     template : `
-    <div class="max-w-full">
-      <assignments-list v-if="inProgressAssignments.length > 0" :assignments="inProgressAssignments" :title="'In Progress'"></assignments-list>
-      <assignments-list v-if="completedAssignments.length > 0" :assignments="completedAssignments" :title="'Completed'"></assignments-list>
-      <assignment-create @add="add"></assignment-create>
+    <div class="max-w-full flex flex-row items-start">
+        <assignments-list v-if="inProgressAssignments.length > 0" :assignments="inProgressAssignments" :title="'In Progress'">
+            <assignment-create @add="add"></assignment-create>
+        </assignments-list>
+        <div v-if="showCompleted">
+            <assignments-list 
+                v-if="completedAssignments.length > 0" 
+                :assignments="completedAssignments" 
+                :title="'Completed'"
+                :can-toggle="true"
+                @toggle="showCompleted = !showCompleted"
+            />
+        </div>
     </div>
     `,
     data() {
         return {
             assignments: [],
+            showCompleted : true,
         }
     },
     computed: {
@@ -29,7 +39,7 @@ export default {
     // DOM)
     
     created () {
-        fetch('http://localhost:4000/assignments').then(response => response.json()).then(data => this.assignments = data)
+        fetch('http://localhost:3001/assignments').then(response => response.json()).then(data => this.assignments = data)
     },
     methods : {
         add (value) {

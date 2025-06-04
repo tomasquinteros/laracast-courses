@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function App () {
+            return <div>
+                <h1>Hola</h1>
+            </div>
+        }
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(<App/>);
+    </script>
+</body>
+</html>
+
+<!--
+    Paso 1: Se importa react CDN
+    Paso 2: Se importa Babel, el encargado en transpilar nuestro codigo. Cambio el script en linea a type:text/babel
+    Paso 3: Creo un elemento en mi html donde le asigno un id, que luego lo obtendre en mi js
+    Paso 4: Creo mi root usando ReactDOM.createRoot()
+    Paso 5: Renderizo mi root con algun componente que haya creado.
+-->

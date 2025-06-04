@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b1de3824-d5f0-48e8-9854-47da428dd126" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ReactFromScratch/react_cdn_create_root/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReactFromScratch/react_vite/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReactFromScratch/react_vite/src/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReactFromScratch/react_vite/src/app.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReactFromScratch/react_vite/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/START/backup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/START/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/START/js/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/START/js/components/ButtonApp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/Vue-components/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/Vue-components/js/components/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/Vue-components/js/components/AssignmentCreate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/Vue-components/js/components/AssignmentItem.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/Vue-components/js/components/Assignments.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VUEjs/Vue-components/js/components/AssignmentsList.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2wyf9wcJ7lpW1Vd9hUmDryDTrhE" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/tomasdev/Documents/laracast-courses/VUEjs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/snap/webstorm/466/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../ReactFromScratch/react_vite" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1de3824-d5f0-48e8-9854-47da428dd126" name="Changes" comment="" />
+      <created>1747018586462</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747018586462</updated>
+      <workItem from="1747018587608" duration="365000" />
+      <workItem from="1747088605784" duration="700000" />
+      <workItem from="1747090050831" duration="2160000" />
+      <workItem from="1747183643501" duration="20000" />
+      <workItem from="1747446387219" duration="37000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

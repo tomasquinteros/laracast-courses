@@ -1,14 +1,18 @@
 import Assignment from "./Assignment.js";
 import AssigmentTags from "./AssigmentTags.js";
+import Panel from "./Panel.js";
 
 export default {
-    components: {AssigmentTags, Assignment},
+    components: {Panel, AssigmentTags, Assignment},
     template: `
-        <div class="border border-gray-500 rounded-sm p-4 m-4 max-w-full">
-            <h2 class="text-xl">
-              {{this.title}}
-              <span class="text-gray-200">{{ this.assignments.length }}</span>
-            </h2>
+        <Panel>
+            <div class="flex flex-row justify-between">  
+                <h2 class="text-xl">
+                    {{this.title}}
+                    <span class="text-gray-200">{{ this.assignments.length }}</span>
+                </h2>
+                <button class="text-xl" v-show="canToggle" @click="$emit('toggle')">&times;</button>
+            </div>
             <!-- 
                 -- Lo que vemos aca es que le paso la propiedad currentTag donde le paso el valor del tag.
                 -- Tambien, capturo el evento change que declare en el componente hijo y actualizo el valor de mi currentTag con el valor del evento.
@@ -29,7 +33,11 @@ export default {
             <ul>
                 <assignment v-for="assignment in this.filteredAssignments" :key="assignment.id" :assignment="assignment"></assignment>
             </ul>
-        </div>
+            <slot></slot>
+            
+            <!-- Con template y # le indicamos a Vue que slot debe utilizar, en este caso le indico que el slot es el que llamamos footer en el componente. -->
+            <template #footer>Assignment List!</template>
+        </Panel>
     `,
     // Data: La utilizamos para declarar estados reactivos.
     data () {
@@ -40,7 +48,11 @@ export default {
     // Props: Pasa propiedades de un elemento padre a hijo.
     props : {
         'title' : String,
-        'assignments' : Array
+        'assignments' : Array,
+        'canToggle' : {
+            'type' : Boolean,
+            'default' : false,
+        }
     },
     // Computed: Declaramos propiedades derivadas de otras reactivas como Data o Props. 
     computed : {

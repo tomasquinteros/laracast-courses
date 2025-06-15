@@ -20,13 +20,13 @@ let comment = ref('Hi there!');
                 />-->
 
         <Quiz :quiz="quiz"/>
+        <h2>Counter value is: {{counter.count}} </h2>
     </main>
 </template>
 <script setup>
 import Quiz from '@/components/Quiz.vue';
 import { ref } from 'vue';
-import QuizButton from '@/components/QuizButton.vue';
-
+import { counter } from '@/stores/counter.js';
 let quiz = ref({
     name: 'Hi there!',
     isQuiz: true,
